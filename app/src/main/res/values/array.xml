@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="integer_profile_user_color">
+        <item>@drawable/profile_circle_orange</item>
+        <item>@drawable/profile_circle_green</item>
+        <item>@drawable/profile_circle_yellow</item>
+        <item>@drawable/profile_circle_red</item>
+    </integer-array>
+
+</resources>

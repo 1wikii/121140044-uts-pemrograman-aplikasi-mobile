@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">UTS-Project</string>
+    <string name="title_home">Home</string>
+    <string name="title_profile">Profile</string>
+
+    <string name="title_splash">Ahmad Dwiky</string>
+
+    <string name="title_login">Login</string>
+    <string name="title_register">Register</string>
+    <string name="title_username">Username</string>
+    <string name="title_password">Password</string>
+    <string name="title_github_username">Github Username</string>
+    <string name="title_nim">NIM</string>
+    <string name="title_email">Email</string>
+
+    <string name="state_key">isLoggedIn</string>
+    <string name="state_value">yes</string>
+
+    <string name="avatar">Avatar</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+
+    <string name="action_search">Search here...</string>
+
+    <string name="logout">Logout</string>
+    <string name="field_bg_color">bgColor</string>
+    <string name="field_username">username</string>
+    <string name="field_githubusername">githubusername</string>
+    <string name="field_nim">nim</string>
+    <string name="field_email">email</string>
+
+    <string name="motion_title">Pemrograman Aplikasi Mobile</string>
+    <string name="motion_desc_1">Android adalah sistem operasi mobile yang
+        dikembangkan oleh perusahaan Android Inc.
+    </string>
+    <string name="motion_desc_2">
+        Kotlin adalah bahasa pemrograman modern yang dapat berjalan
+        di atas Java Virtual Machine (JVM). Pada tahun 2017, Google
+        mengumumkan dukungan resmi untuk Kotlin dalam pengembangan aplikasi Android.
+
+    </string>
+    <string name="motion_desc_3">
+        platform pembelajaran daring (online) yang menyediakan berbagai kursus
+        dan pelatihan di berbagai bidang teknologi informasi.
+    </string>
+    <string name="motion_desc_4">
+        Google memberikan para pengembang alat yang kuat dan efisien untuk
+        membuat aplikasi Android yang inovatif dan berkualitas tinggi.
+    </string>
+
+    <string name="motion_logo">logo</string>
+    <string name="motion_android">android</string>
+    <string name="motion_kotlin">kotlin</string>
+    <string name="motion_dicoding">dicoding</string>
+    <string name="motion_android_studio">android studio</string>
+
+    <string name="motion_button">
+        Mulai
+    </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
