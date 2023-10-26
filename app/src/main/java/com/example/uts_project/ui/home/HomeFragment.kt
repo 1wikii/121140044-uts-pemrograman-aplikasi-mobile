@@ -1,5 +1,6 @@
 package com.example.uts_project.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -46,6 +47,13 @@ class HomeFragment : Fragment() {
         recyclerView.adapter = adapter
         searchView = view.findViewById(R.id.search_action)
 
+        recyclerView.setOnClickListener{
+            val intent = Intent(activity, HomeDetailFragment::class.java)
+            startActivity(intent)
+        }
+
+
+
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
@@ -53,7 +61,40 @@ class HomeFragment : Fragment() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 query = newText
-//                getUser(newText)
+
+                val client = ApiConfig.getApiService().getListUsers("1")
+
+                val pattern = query.toString().lowercase(Locale.ROOT).trim()
+
+                client.enqueue(object : Callback<ResponseUser> {
+                    override fun onResponse(call: Call<ResponseUser>, response: Response<ResponseUser>) {
+                        if (response.isSuccessful) {
+                            val dataArray = response.body()?.data as List<DataItem>
+                            for (data in dataArray) {
+
+                                if(query.isNullOrEmpty()){
+                                    adapter.addUser(data)
+                                }else{
+
+                                    if(data.firstName?.lowercase(Locale.ROOT)?.contains(pattern) == true ||
+                                        data.lastName?.lowercase(Locale.ROOT)?.contains(pattern) == true
+                                    ){
+                                        adapter.clear()
+                                        adapter.addUser(data)
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ResponseUser>, t: Throwable) {
+                        Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+                        t.printStackTrace()
+                    }
+                })
+
+
                 return false
             }
         })
@@ -74,12 +115,14 @@ class HomeFragment : Fragment() {
                     for (data in dataArray) {
 
                         if(query.isNullOrEmpty()){
+                            adapter.clear()
                             adapter.addUser(data)
                         }else{
 
                             if(data.firstName?.lowercase(Locale.ROOT)?.contains(pattern) == true ||
                                 data.lastName?.lowercase(Locale.ROOT)?.contains(pattern) == true
                             ){
+                                adapter.clear()
                                 adapter.addUser(data)
                             }
                         }

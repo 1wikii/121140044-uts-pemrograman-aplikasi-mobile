@@ -1,5 +1,6 @@
 package com.example.uts_project
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,8 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestOptions
 import com.example.uts_project.model.DataItem
 import android.util.Log
+import android.widget.Toast
+import kotlin.coroutines.coroutineContext
 
 class UserAdapter(private val users: MutableList<DataItem>) :
     RecyclerView.Adapter<UserAdapter.ListViewHolder>(){
@@ -18,6 +21,8 @@ class UserAdapter(private val users: MutableList<DataItem>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view: View =
             LayoutInflater.from(parent.context).inflate(R.layout.item_list_user, parent, false)
+
+
         return ListViewHolder(
             view
         )
@@ -26,6 +31,11 @@ class UserAdapter(private val users: MutableList<DataItem>) :
     fun addUser(newUsers: DataItem) {
         users.add(newUsers)
         notifyItemInserted(users.lastIndex)
+    }
+
+    fun clear() {
+        users.clear()
+        notifyDataSetChanged()
     }
 
 
@@ -45,6 +55,7 @@ class UserAdapter(private val users: MutableList<DataItem>) :
     }
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
         var tvUserName: TextView = itemView.findViewById(R.id.itemName)
         var tvEmail: TextView = itemView.findViewById(R.id.itemEmail)
         var ivAvatar: ImageView = itemView.findViewById(R.id.itemAvatar)
