@@ -5,22 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_profile"
     tools:context=".ui.profile.ProfileFragment">
 
 
-    <TextView
-        android:id="@+id/profile_user"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="90dp"
-        android:background="@drawable/profile_circle_red"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/white"
-        android:textSize="110dp"
-        android:gravity="center_horizontal"
-        android:textStyle="bold"/>
+    <RelativeLayout
+        android:id="@+id/container_profile_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/profile_user"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="90dp"
+            android:background="@drawable/profile_circle_red"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="110dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/profile_username"
@@ -29,7 +38,7 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:paddingLeft="30dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:text="@string/title_username"
@@ -38,7 +47,7 @@
         android:textColor="@color/black"
         android:fontFamily="@font/roboto"
         android:background="@drawable/grey_border"
-        app:layout_constraintTop_toBottomOf="@+id/profile_user"
+        app:layout_constraintTop_toBottomOf="@+id/container_profile_user"
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
