@@ -115,7 +115,6 @@ class HomeFragment : Fragment() {
                     for (data in dataArray) {
 
                         if(query.isNullOrEmpty()){
-                            adapter.clear()
                             adapter.addUser(data)
                         }else{
 
